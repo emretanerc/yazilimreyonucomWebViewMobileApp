@@ -7,9 +7,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:simple_connection_checker/simple_connection_checker.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import '../view_model/job_view_model.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -78,11 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   late WebViewController _webViewController;
 
-  void getSetting() {
-    late var job = context.read<JobViewModel>().jobList[0];
-    telephoneNumber = job.whatsapp;
-    logoUrl = job.logo;
-  }
+  void getSetting() {}
 
   void _onItemTapped(int index) {
     setState(() {
@@ -121,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: telephoneNumber,
+            label: 'Anasayfa',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.design_services),
@@ -141,7 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
         selectedItemColor: Colors.white,
         onTap: _onItemTapped,
       ),
-      drawer: Drawer(
+      /*drawer: Drawer(
         backgroundColor: Colors.deepPurple,
         child: ListView(
           // Important: Remove any padding from the ListView.
@@ -164,7 +157,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
-      ),
+      ),*/
       appBar: AppBar(
         title: Text(widget.title),
         centerTitle: true,
