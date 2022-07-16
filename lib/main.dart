@@ -6,7 +6,6 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:simple_connection_checker/simple_connection_checker.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'package:flutter/material.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -46,13 +45,10 @@ class _MyHomePageState extends State<MyHomePage> {
     bool hasConnection = await internetControl();
 
     if (hasConnection) {
-      print('ready in 3...');
-      await Future.delayed(const Duration(seconds: 1));
-      print('ready in 2...');
+      print('ready in 1...');
       await Future.delayed(const Duration(seconds: 1));
       print('go!');
       FlutterNativeSplash.remove();
-      getSetting();
     } else {
       Fluttertoast.showToast(
           msg: "Lütfen internetinizi açıp tekrar deneyiniz.",
@@ -74,8 +70,6 @@ class _MyHomePageState extends State<MyHomePage> {
       Completer<WebViewController>();
 
   late WebViewController _webViewController;
-
-  void getSetting() {}
 
   void _onItemTapped(int index) {
     setState(() {
